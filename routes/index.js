@@ -374,6 +374,9 @@ Routes.prototype.proxyRouteOpenhab = function (req, res) {
     //tell OH3 to use alternative Authentication header
     res.cookie('X-OPENHAB-AUTH-HEADER', 'true')
 
+    //add custom x-openhab-user header for google cloud interaction
+    res.set('x-openhab-user', req.user.username);
+
     var requestId = this.requestTracker.acquireRequestId();
     // make a local copy of request headers to modify
     var requestHeaders = req.headers;

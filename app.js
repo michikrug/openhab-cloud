@@ -143,12 +143,13 @@ app.use(passport.session());
 //we need to know if this is a proxy connection or not (home/remote), other middleware depends on it.
 app.use(function (req, res, next) {
     var host = req.headers.host;
-    //  console.log(host);
-    if (!host) {
-        next(); // No host in header, just go ahead
-    }
+    // console.log(host);
+    //ignore empty hosts header and still proxy request
+    // if (!host) {
+    //     next(); // No host in header, just go ahead
+    // }
     // If host matches names for full /* proxying, go ahead and just proxy it.
-    if (host.indexOf('remote.') === 0 || host.indexOf('home.') === 0) {
+    if (!host || host && host.indexOf('remote.') === 0 || host && host.indexOf('home.') === 0) {
         //make sure this was not set by another server
         if (req.url.indexOf('/remote') != 0) {
             req.url = '/remote' + req.url;
