@@ -35,9 +35,7 @@
   },
   "mongodb": {
     "hosts": ["mongodb"],
-    "db": "openhab",
-    "user": "",
-    "password": ""
+    "db": "openhab"
   },
   "redis": {
     "host": "redis",
