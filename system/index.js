@@ -240,6 +240,7 @@ System.prototype.hasLegalPolicy = function() {
  * @return {boolean}
  */
 System.prototype.isIFTTTEnabled = function() {
+    return false;
     try {
         this.getConfig(['ifttt']);
         return true;
@@ -281,6 +282,7 @@ System.prototype.getAndroidLink = function () {
  * @return {boolean}
  */
 System.prototype.isGcmConfigured = function() {
+    return false;
     try {
         this.getGcmSenderId();
         return true;
